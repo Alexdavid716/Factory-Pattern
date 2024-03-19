@@ -1,10 +1,22 @@
-﻿namespace FactoryPattern
+﻿using System;
+
+class Program
 {
-    public class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        Console.Write("Enter the number of tires for the vehicle: ");
+        int.TryParse(Console.ReadLine(), out int numberOfTires);
+
+        try
         {
-            Console.WriteLine("Hello, World!");
+            // Get the vehicle from the factory based on the number of tires
+            IVehicle vehicle = VehicleFactory.GetVehicle(numberOfTires);
+            Console.WriteLine("Vehicle created:");
+            vehicle.Drive();
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine(ex.Message);
         }
     }
 }
