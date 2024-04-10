@@ -9,7 +9,7 @@ class Program
 
         try
         {
-            // Get the vehicle from the factory based on the number of tires
+            
             IVehicle vehicle = VehicleFactory.GetVehicle(numberOfTires);
             Console.WriteLine("Vehicle created:");
             vehicle.Drive();
